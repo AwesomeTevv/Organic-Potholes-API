@@ -50,3 +50,7 @@ database.on("error", (error) => {
 database.once("connected", () => {
   console.log("Database Connected");
 });
+
+// ROUTES
+const potholeRoute = require("./routes/potholeRoute");
+app.use("/api/pothole", potholeRoute);
