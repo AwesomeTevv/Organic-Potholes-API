@@ -9,3 +9,13 @@ npm install
 ```
 
 to install the necessary node modules needed to program.
+
+---
+
+Type
+
+```powershell
+npm run dev-start
+```
+
+for local debugging and hosting
