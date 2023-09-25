@@ -30,3 +30,14 @@ router.post("/addManyPotholes", async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+
+// Get all Method
+// Fetches a list of all the Potholes on the database
+router.get("/getAllPotholes", async (req, res) => {
+  try {
+    const data = await Pothole.find();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
