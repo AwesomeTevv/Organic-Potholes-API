@@ -41,3 +41,16 @@ router.get("/getAllPotholes", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+// Delete Pothole by ID Method
+router.delete("/deletePothole/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const data = await Pothole.findByIdAndDelete(id);
+    res.send(`Document with  id: ${id} has been deleted..`);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
+module.exports = router;
