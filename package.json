@@ -1,0 +1,19 @@
+{
+  "name": "organic-potholes-api",
+  "version": "1.0.0",
+  "description": "The API backend for Organic Potholes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AwesomeTevv/Organic-Potholes-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AwesomeTevv/Organic-Potholes-API/issues"
+  },
+  "homepage": "https://github.com/AwesomeTevv/Organic-Potholes-API#readme"
+}
