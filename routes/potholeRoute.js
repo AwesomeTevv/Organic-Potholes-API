@@ -6,7 +6,7 @@ const router = express.Router();
 // Post Method
 // Creates a single Pothole and adds it to the database
 router.post("/addPothole", async (req, res) => {
-  const data = new Answer({
+  const data = new Pothole({
     Coordinates: {
       Longitude: req.body.Longitude,
       Latitude: req.body.Latitude,
