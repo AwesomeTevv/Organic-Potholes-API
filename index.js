@@ -6,6 +6,22 @@ require("dotenv").config();
 const app = express(); // Setting up an Express app
 // const PORT = process.env.PORT || 3000;
 
+const mongoString = process.env.DATABASE_URL; // MongoDB Connection String
+
+/**
+ * Setting up MongoDB Database connection
+ */
+mongoose
+  .connect(mongoString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    app.listen(3000, () => {
+      console.log(`Server started at ${3000}`);
+    });
+  });
+
 /**
  * Setting up the Express app with the necessary
  * headers
@@ -24,21 +40,6 @@ app.use((req, res, next) => {
   next();
 });
 
-const mongoString = process.env.DATABASE_URL; // MongoDB Connection String
-
-/**
- * Setting up MongoDB Database connection
- */
-mongoose
-  .connect(mongoString, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    app.listen(3000, () => {
-      console.log(`Server started at ${3000}`);
-    });
-  });
 const database = mongoose.connection;
 
 database.on("error", (error) => {
