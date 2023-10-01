@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 const app = express(); // Setting up an Express app
+const PORT = process.env.PORT || 3000;
 
 /**
  * Setting up the Express app with the necessary
@@ -34,8 +35,8 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    app.listen(3000, () => {
-      console.log(`Server started at ${3000}`);
+    app.listen(PORT, () => {
+      console.log(`Server started at ${PORT}`);
     });
   });
 const database = mongoose.connection;
