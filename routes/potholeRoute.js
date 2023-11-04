@@ -41,15 +41,18 @@ router.get("/getAllPotholes", async (req, res) => {
 });
 
 // Delete Pothole by ID Method
-router.delete("/deletePothole/", async (req, res) => {
+router.delete("/deletePothole", async (req, res) => {
   try {
     const data = await Pothole.findOneAndDelete({
       Latitude: req.body.Latitude,
       Longitude: req.body.Longitude,
     });
-    res.send(
-      `Deleted pothole with latitude: ${data.Latitude} and longitude: ${data.Longitude}`
-    );
+
+    if (!data) {
+      res.send(`No potholes found at that location`);
+    } else {
+      res.send(`Deleted pothole.`);
+    }
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
