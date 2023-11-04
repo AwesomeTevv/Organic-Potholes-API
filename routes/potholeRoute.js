@@ -48,10 +48,10 @@ router.delete("/deletePothole", async (req, res) => {
       Longitude: req.body.Longitude,
     });
 
-    if (!data) {
-      res.send(`No potholes found at that location`);
-    } else {
+    if (data) {
       res.send(`Deleted pothole.`);
+    } else {
+      res.send(`No potholes found at that location.`);
     }
   } catch (error) {
     res.status(400).json({ message: error.message });
