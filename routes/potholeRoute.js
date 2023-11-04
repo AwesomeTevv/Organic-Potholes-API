@@ -41,11 +41,15 @@ router.get("/getAllPotholes", async (req, res) => {
 });
 
 // Delete Pothole by ID Method
-router.delete("/deletePothole/:id", async (req, res) => {
+router.delete("/deletePothole/", async (req, res) => {
   try {
-    const id = req.params.id;
-    const data = await Pothole.findByIdAndDelete(id);
-    res.send(`Document with  id: ${id} has been deleted..`);
+    const data = await Pothole.findOneAndDelete({
+      Latitude: req.body.Latitude,
+      Longitude: req.body.Longitude,
+    });
+    res.send(
+      `Deleted pothole with latitude: ${data.Latitude} and longitude: ${data.Longitude}`
+    );
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
